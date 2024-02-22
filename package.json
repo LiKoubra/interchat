@@ -1,0 +1,19 @@
+{
+  "name": "interchat",
+  "version": "3.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiKoubra/interchat.git"
+  },
+  "author": "Li Koubra / Orqua Looping",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiKoubra/interchat/issues"
+  },
+  "homepage": "https://github.com/LiKoubra/interchat#readme"
+}
