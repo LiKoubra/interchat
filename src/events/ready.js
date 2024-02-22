@@ -1,10 +1,12 @@
 const { servers_channel_id, twitch_url } = require('../../data/config.json');
 const { ActivityType, EmbedBuilder } = require('discord.js');
 const Vibrant = require('node-vibrant');
+
 module.exports = {
     name: 'ready',
     once: true,
     async execute(client) {
+
         console.log(`[discord]: Connected to ${client.user.tag}\n[discord]: ${client.guilds.cache.size} servers - ${client.users.cache.filter(usr => !usr.bot).size} users`);
         client.user.setPresence({ activities: [{ name: 'Interchat', type: ActivityType.Streaming, url: twitch_url }] })
         await client.channels.cache.get(servers_channel_id).bulkDelete(99);
@@ -36,5 +38,6 @@ module.exports = {
                     ])
                 ] })
         }
+
     }
 }
