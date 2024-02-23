@@ -10,7 +10,7 @@ client.commands = new Collection();
 
 console.log('[discord]: Connecting to Discord client...');
 client.login(discord_token).catch(error => {
-    console.error(`[discord]: Cannot connect do Discord client : ${error}`)
+    console.error(`[discord]: Cannot connect to Discord client : ${error}`)
 })
 
 //FS
