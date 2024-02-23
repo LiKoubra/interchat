@@ -26,7 +26,7 @@ Talk with the entire world
 > **Developers**
 > - Li Koubra / Orqua Looping
 >
-> **Libraries used**
+> **Dependencies**
 > - discord.js
 > - node-vibrant
 > - moment
