@@ -28,12 +28,15 @@ Talk with the entire world
 >
 > **Dependencies**
 > - discord.js
+> - fs
+> - path
+> - axios
 > - node-vibrant
 > - moment
 > - for more, see [packages.json](./package.json)
 > 
 > **Thanks**
 > - discord.js [guide](https://discordjs.guide/) and [documentation](https://old.discordjs.dev/#/)
-> - npm documentation
+> - [npm](https://www.npmjs.com/) documentation
 > - [JetBrains](https://www.jetbrains.com/) for IntelliJ Idea
 > - Some random YouTube tutorials
