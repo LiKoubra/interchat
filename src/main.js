@@ -4,8 +4,9 @@ console.log('[node]: Executing...');
 const { intents, discord_token } = require('../data/config.json');
 
 //DISCORD
-const { Client, Collection} = require('discord.js');
+const { Client, Collection, REST } = require('discord.js');
 const client = new Client({ intents: [intents] });
+const rest = new REST({ version: '9' }).setToken(discord_token);
 client.commands = new Collection();
 
 console.log('[discord]: Connecting to Discord client...');
@@ -28,3 +29,20 @@ for (const file of eventFiles) {
     eventsCount++;
 }
 console.log(`[fs]: Loaded ${eventsCount} events`);
+
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+let commandsCount = 0;
+(async () => {
+    for (const file of commandFiles) {
+        const command = require(`./commands/${file}`);
+        if (command.data) {
+            try {
+                await rest.put(`/applications/${client.user.id}/commands`, {body: [command.data]});
+                commandsCount++;
+            } catch (error) {
+                console.error(`[discord]: Cannot load ${command.data.name} command : ${error}`);
+            }
+        }
+    }
+})()
+console.log(`[fs]: Loaded ${commandsCount} commands`);
