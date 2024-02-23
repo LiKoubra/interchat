@@ -5,6 +5,7 @@ Talk with the entire world
 > - Features
 > - Guide
 > - Links
+> - Credits, Thanks
 ### What is it ?
 > InterChat is a free open source and fully customisable solution to connect servers by one or many channels.
 ### Features
@@ -21,3 +22,16 @@ Talk with the entire world
 ### Links
 > -  [Invite bot](https://discord.com/api/oauth2/authorize?client_id=1092195460007080126&permissions=2147609680&scope=bot+applications.commands)
 > - [Discord server](http://discord.gg/k3ngHdn5eb)
+### Credits, Thanks
+> **Developers**
+> - Li Koubra / Orqua Looping
+>
+> **Libraries used**
+> - discord.js
+> - node-vibrant
+> - moment
+> - for more, see [packages.json](./package.json)
+> 
+> **Thanks**
+> - discord.js [guide](https://discordjs.guide/) and [documentation](https://old.discordjs.dev/#/)
+> - npm documentation
