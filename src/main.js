@@ -1,10 +1,13 @@
 console.log('[node]: Executing...');
 
 //DEPENDENCIES
-const { intents, discord_token } = require('../data/config.json');
+
+const { intents, discord_token, discord_client_id } = require('../data/config.json');
+const fs = require('fs');
 
 //DISCORD
-const { Client, Collection, REST } = require('discord.js');
+
+const { Client, Collection, REST, Routes } = require('discord.js');
 const client = new Client({ intents: [intents] });
 const rest = new REST().setToken(discord_token);
 client.commands = new Collection();
@@ -15,8 +18,6 @@ client.login(discord_token).catch(error => {
 })
 
 //FS
-const fs = require('fs');
-
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 let eventsCount = 0;
 for (const file of eventFiles) {
@@ -29,3 +30,15 @@ for (const file of eventFiles) {
     eventsCount++;
 }
 console.log(`[fs]: Loaded ${eventsCount} events`);
+
+//COMMANDS
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+(async () => {
+    for (const file of commandFiles) {
+        const command = require(`./commands/${file}`);
+        client.commands.set(command.name, command);
+        await rest.put(Routes.applicationCommands(discord_client_id), { body: command.data.body })
+    }
+})()
+
+

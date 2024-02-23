@@ -1,10 +1,10 @@
-const { SlashCommandBuilder } = require('discord.js');
-
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('ping')
-        .setDescription('Return InterChat latency and uptime'),
+    data: {
+        name: 'ping',
+        description: 'Return InterChat latency and uptime',
+        options: []
+    },
     async execute(interaction, client) {
-        await interaction.reply(client.ws.ping);
+        interaction.reply('pong lmaoooo');
     }
 }
