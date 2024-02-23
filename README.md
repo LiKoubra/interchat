@@ -35,3 +35,5 @@ Talk with the entire world
 > **Thanks**
 > - discord.js [guide](https://discordjs.guide/) and [documentation](https://old.discordjs.dev/#/)
 > - npm documentation
+> - [JetBrains](https://www.jetbrains.com/) for IntelliJ Idea
+> - Some random YouTube tutorials
