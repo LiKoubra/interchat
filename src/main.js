@@ -10,13 +10,14 @@ client.commands = new Collection();
 
 console.log('[discord]: Connecting to Discord client...');
 client.login(discord_token).catch(error => {
-    console.error(`[discord]: Cannot connect to Discord client : ${error}`)
+    console.error(`[discord]: Cannot connect to Discord client : ${error}`);
 })
 
 //FS
 const fs = require('fs');
 
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+let eventsCount = 0;
 for (const file of eventFiles) {
     const event = require(`./events/${file}`);
     if (event.once) {
@@ -24,4 +25,6 @@ for (const file of eventFiles) {
     } else {
         client.on(event.name, (...args) => event.execute(...args, client));
     }
+    eventsCount++;
 }
+console.log(`[fs]: Loaded ${eventsCount} events`);
